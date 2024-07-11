@@ -8,6 +8,7 @@ class Codec:
         """Encodes a URL to a shortened URL.
         """
         generatedURL = self.stringToURL.get(longUrl, "".join([chr(randint(ord('A'), ord('z'))) for _ in range(10)]))
+        self.stringToURL[longUrl] = generatedURL
         self.urlToString[generatedURL] = longUrl
         return self.TINYURL + generatedURL
         
